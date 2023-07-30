@@ -1,54 +1,53 @@
-| | | | | | |
-|-|-|-|-|-|-|
-| |Создан: 30.07.2023| | | | |
-| |Автор: Исаева Н.А.| | | | |
-| |Версия: 1,0| | | | |
-| | | | | | |
-| |Баг №1   Поле "Учетная запись" принимает число символов, превышающее максимум| | | | |
-| |Предусловие:|1. Открыта форма авторизации https://www.selsup.ru/auth/login/sentry/| | | |
-| |Окружение: |Win. 8.1(64), Google Chrome Версия 109.0.5414.149 (Официальная сборка), (64 бит)| | | |
-| | | | | | |
-| |Шаги|ОР|ФР|Приоритет/Срочность|Ссылка на скрин|
-| |В графе "Учетная запись(имя пользователя) ввести цифры от 1 до 60.|Ошибка "Недопустимый ввод"(превышена максимальная длина для этого поля ввода)|Система пропускает такой ввод|Low/Min|https://drive.google.com/file/d/18uqW3Z4O8ZlP6AAms-rQ5TWVKuxqPj-g/view?usp=sharing|
-| | | | | | |
-| | | | | | |
-| | | | | | |
-| | | | | | |
-| |Баг №2  Конфликт содержимого, небезопасное соединение| | | | |
-| |Предусловие:|1. Открыта форма авторизации https://www.selsup.ru/auth/login/sentry/| | | |
-| |Окружение: |Win. 8.1(64), Google Chrome Версия 109.0.5414.149 (Официальная сборка), (64 бит)| | | |
-| | | | | | |
-| |Шаги|ОР|ФР|Приоритет/Срочность|Ссылка на скрин|
-| |1. Открыть DevTools                                      2. Нажать вкладку"Консоль"|Отсутствие ошибок(логов)|Системная ошибка "Mixed Content: The page at 'https://www.selsup.ru/auth/login/sentry/' was loaded over HTTPS, but requested an insecure resource 'http://sentry.selsup-team.ru:9000/api/1/envelope/?sentry_key=f6a3a8ceeb404f49860dff0479abb113&sentry_version=7&sentry_client=sentry.javascript.react%2F7.37.2'. This request has been blocked; the content must be served over HTTPS." |High/normal|https://drive.google.com/file/d/18uqW3Z4O8ZlP6AAms-rQ5TWVKuxqPj-g/view?usp=sharing|
-| | | |Есть только на странице  https://www.selsup.ru/auth/login/sentry/| | |
-| | | | | | |
-| | | | | | |
-| | | | | | |
-| | | | | | |
-| | | | | | |
-| |Баг №3 Отключено запоминание логин/пароля пользователя для последующих вводов| | | | |
-| |Предусловие:|1. Открыта форма авторизации https://www.selsup.ru/auth/login/sentry/| | | |
-| |Окружение: |Win. 8.1(64), Google Chrome Версия 109.0.5414.149 (Официальная сборка), (64 бит)| | | |
-| | | | | | |
-| |Шаги|ОР|ФР|Приоритет/Срочность|Ссылка на скрин|
-| |1. Открыть DevTools                                      2. Нажать вкладку"Консоль"|Отсутствие ошибок(логов)|Системная ошибка (Не удалось загрузить Fetch: POST (http://sentry.selsup-team.ru:9000/api/1/envelope/?sentry_key=f6a3a8ceeb404f49860dff0479abb113&sentry_version=7&sentry_client=sentry.javascript.react%2F7.37.2).     |High/normal|https://drive.google.com/file/d/18uqW3Z4O8ZlP6AAms-rQ5TWVKuxqPj-g/view?usp=sharing|
-| | | |Есть только на странице  https://www.selsup.ru/auth/login/sentry/| | |
-| | | | | | |
-| | | | | | |
-| | | | | | |
-| | | | | | |
-| |Баг №4   Поле "Учетная запись" выполняет действия с невалидным логином| | | | |
-| |Предусловие:|1. Открыта форма для вода данных https://www.selsup.ru/account/recover/  | | | |
-| |Окружение: |Win. 8.1(64), Google Chrome Версия 109.0.5414.149 (Официальная сборка), (64 бит)| | | |
-| | | | | | |
-| |Шаги|ОР|ФР|Приоритет/Срочность|Ссылка на скрин|
-| |В графе "Учетная запись(имя пользователя) ввести firstname.lastname@domain.com|Ошибка "Такой пользователь в системе не обнаружен"|Система пропускает такой ввод, выдает уведомление об отправке сообщения|High/normal|https://drive.google.com/file/d/18uqW3Z4O8ZlP6AAms-rQ5TWVKuxqPj-g/view?usp=sharing|
-| | | | | | |
-| | | | | | |
-| |Баг №5  Проблема загрузки JS со стороны сервера| | | | |
-| |Предусловие:|1. Открыта форма авторизации https://www.selsup.ru/account/recover/| | | |
-| |Окружение: |Win. 8.1(64), Google Chrome Версия 109.0.5414.149 (Официальная сборка), (64 бит)| | | |
-| | | | | | |
-| |Шаги|ОР|ФР|Приоритет/Срочность|Ссылка на скрин|
-| |1. Открыть DevTools                                      2. Нажать вкладку"Консоль"|Отсутствие ошибок(логов)|Системная ошибка (fetch.js:32 Не удалось загрузить Fetch: POST)      Сервер не подгружает данные JS на страницу, проблема с методом Пост|High/normal|https://drive.google.com/file/d/18uqW3Z4O8ZlP6AAms-rQ5TWVKuxqPj-g/view?usp=sharing|
-| | | |Есть только на странице  https://www.selsup.ru/account/recover/| | |
+
+Создан: 30.07.2023				
+Автор: Исаева Н.А.				
+Версия: 1,0				
+Баг №1 Поле "Учетная запись" принимает число символов, превышающее максимум		
+Предусловие:	1. Открыта форма авторизации https://www.selsup.ru/auth/login/sentry/			
+Окружение:	Win. 8.1(64), Google Chrome Версия 109.0.5414.149 (Официальная сборка), (64 бит)			
+Шаги	ОР	ФР	Приоритет/Срочность	Ссылка на скрин
+В графе "Учетная запись(имя пользователя) ввести цифры от 1 до 60.	Ошибка "Недопустимый ввод"(превышена максимальная длина для этого поля ввода)	Система пропускает такой ввод	Low/Min	https://drive.google.com/file/d/18uqW3Z4O8ZlP6AAms-rQ5TWVKuxqPj-g/view?usp=sharing
+ 	 	 	 	 	 
+ 	 	 	 	 	 
+ 	Баг №2 Конфликт содержимого, небезопасное соединение		
+ 	Предусловие:	1. Открыта форма авторизации https://www.selsup.ru/auth/login/sentry/			
+ 	Окружение:	Win. 8.1(64), Google Chrome Версия 109.0.5414.149 (Официальная сборка), (64 бит)			
+ 					
+ 	Шаги	ОР	ФР	Приоритет/Срочность	Ссылка на скрин
+ 	1. Открыть DevTools 2. Нажать вкладку"Консоль"	Отсутствие ошибок(логов)	Системная ошибка "Mixed Content: The page at 'https://www.selsup.ru/auth/login/sentry/' was loaded over HTTPS, but requested an insecure resource 'http://sentry.selsup-team.ru:9000/api/1/envelope/?sentry_key=f6a3a8ceeb404f49860dff0479abb113&sentry_version=7&sentry_client=sentry.javascript.react%2F7.37.2'. This request has been blocked; the content must be served over HTTPS."	High/normal	https://drive.google.com/file/d/18uqW3Z4O8ZlP6AAms-rQ5TWVKuxqPj-g/view?usp=sharing
+ 			Есть только на странице https://www.selsup.ru/auth/login/sentry/		
+ 					
+ 					
+ 	 	 	 	 	 
+ 	 	 	 	 	 
+ 	 	 	 	 	 
+ 	Баг №3 Отключено запоминание логин/пароля пользователя для последующих вводов		
+ 	Предусловие:	1. Открыта форма авторизации https://www.selsup.ru/auth/login/sentry/			
+ 	Окружение:	Win. 8.1(64), Google Chrome Версия 109.0.5414.149 (Официальная сборка), (64 бит)			
+ 					
+ 	Шаги	ОР	ФР	Приоритет/Срочность	Ссылка на скрин
+ 	1. Открыть DevTools 2. Нажать вкладку"Консоль"	Отсутствие ошибок(логов)	Системная ошибка (Не удалось загрузить Fetch: POST (http://sentry.selsup-team.ru:9000/api/1/envelope/?sentry_key=f6a3a8ceeb404f49860dff0479abb113&sentry_version=7&sentry_client=sentry.javascript.react%2F7.37.2).
+    	High/normal	https://drive.google.com/file/d/18uqW3Z4O8ZlP6AAms-rQ5TWVKuxqPj-g/view?usp=sharing
+ 			Есть только на странице https://www.selsup.ru/auth/login/sentry/		
+ 					
+ 					
+ 	 	 	 	 	 
+ 	 	 	 	 	 
+ 	Баг №4 Поле "Учетная запись" выполняет действия с невалидным логином		
+ 	Предусловие:	1. Открыта форма для вода данных https://www.selsup.ru/account/recover/			
+ 	Окружение:	Win. 8.1(64), Google Chrome Версия 109.0.5414.149 (Официальная сборка), (64 бит)			
+ 					
+ 	Шаги	ОР	ФР	Приоритет/Срочность	Ссылка на скрин
+ 	В графе "Учетная запись(имя пользователя) ввести firstname.lastname@domain.com	Ошибка "Такой пользователь в системе не обнаружен"	Система пропускает такой ввод, выдает уведомление об отправке сообщения	High/normal	https://drive.google.com/file/d/18uqW3Z4O8ZlP6AAms-rQ5TWVKuxqPj-g/view?usp=sharing
+ 					
+ 					
+ 	Баг №5 Проблема загрузки JS со стороны сервера		
+ 	Предусловие:	1. Открыта форма авторизации https://www.selsup.ru/account/recover/			
+ 	Окружение:	Win. 8.1(64), Google Chrome Версия 109.0.5414.149 (Официальная сборка), (64 бит)			
+ 					
+ 	Шаги	ОР	ФР	Приоритет/Срочность	Ссылка на скрин
+ 	1. Открыть DevTools 2. Нажать вкладку"Консоль"	Отсутствие ошибок(логов)	Системная ошибка (fetch.js:32 Не удалось загрузить Fetch: POST) Сервер не подгружает данные JS на страницу, проблема с методом Пост	High/normal	https://drive.google.com/file/d/18uqW3Z4O8ZlP6AAms-rQ5TWVKuxqPj-g/view?usp=sharing
+ 			Есть только на странице https://www.selsup.ru/account/recover/		
+ 					
+ 					
+ 	 
